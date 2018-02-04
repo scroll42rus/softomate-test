@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Softomate example extension</title>
+    <style type="text/css">
+        body {
+            margin: 10px;
+            white-space: nowrap;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/popup.css">
+
+    <script type="text/javascript" src="../static/js/jquery-custom.min.js"></script>
+    <script type="text/javascript" src="../static/js/handlebars.min.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+</head>
+
+<body>
+    <h1>Available urls</h1>
+    <div id="container">
+        <script id="template" type="text/x-handlebars-template">
+            <ul class="list__group">
+                {{#each this}}
+                <li class="list__group__item">
+                    <a href="http://{{domain}}" target="_blank">
+                        <img class="list__group__item__logo" src="http://{{domain}}/favicon.ico" />
+                        {{name}}
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+{
+    "manifest_version": 2,
+
+    "name": "Softomate test project",
+    "description": "",
+    "version": "1.0",
+
+    "icons": {
+        "16": "static/img/icon.png",
+        "48": "static/img/icon.png",
+        "128": "static/img/icon.png"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "css": [
+                "static/css/message.css"
+            ],
+            "js": [
+                "static/js/jquery-custom.min.js",
+                "static/js/handlebars.min.js",
+                "templates/inject.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        "templates/message.html"
+    ],
+    "browser_action": {
+        "default_icon": "static/img/icon.png",
+        "default_popup": "templates/popup.html"
+    },
+    "background": {
+        "scripts": [
+            "static/js/jquery-custom.min.js",
+            "static/js/background.js"
+        ]
+    },
+    "permissions": [
+        "activeTab",
+        "background",
+        "storage",
+        "identity",
+        "identity.email"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
