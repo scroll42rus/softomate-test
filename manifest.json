@@ -6,21 +6,21 @@
     "version": "1.0",
 
     "icons": {
-        "16": "static/img/icon.png",
-        "48": "static/img/icon.png",
-        "128": "static/img/icon.png"
+        "16": "assets/img/icon.png",
+        "48": "assets/img/icon.png",
+        "128": "assets/img/icon.png"
     },
 
     "content_scripts": [
         {
-            "matches": ["*://*/*"],
+            "matches": ["http://*/*", "https://*/*"],
             "css": [
-                "static/css/message.css"
+                "assets/css/message.css"
             ],
             "js": [
-                "static/js/jquery-custom.min.js",
-                "static/js/handlebars.min.js",
-                "templates/inject.js"
+                "assets/js/jquery-custom.min.js",
+                "assets/js/handlebars.min.js",
+                "assets/js/inject.js"
             ]
         }
     ],
@@ -28,17 +28,16 @@
         "templates/message.html"
     ],
     "browser_action": {
-        "default_icon": "static/img/icon.png",
+        "default_icon": "assets/img/icon.png",
         "default_popup": "templates/popup.html"
     },
     "background": {
         "scripts": [
-            "static/js/jquery-custom.min.js",
-            "static/js/background.js"
+            "assets/js/jquery-custom.min.js",
+            "assets/js/background.js"
         ]
     },
     "permissions": [
-        "activeTab",
         "background",
         "storage",
         "identity",
