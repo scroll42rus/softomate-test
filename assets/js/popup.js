@@ -1,4 +1,4 @@
-let applyContent = () => {
+const applyContent = () => {
     chrome.storage.sync.get('data', items => {
         if ('data' in items) {
             let template = Handlebars.compile($('#template').html())

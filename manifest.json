@@ -15,17 +15,21 @@
         {
             "matches": ["http://*/*", "https://*/*"],
             "css": [
-                "assets/css/message.css"
+                "assets/css/message.css",
+                "assets/css/icon.css"
             ],
             "js": [
-                "assets/js/jquery-custom.min.js",
-                "assets/js/handlebars.min.js",
-                "assets/js/inject.js"
+                "assets/plugins/jquery-custom.min.js",
+                "assets/plugins/handlebars.min.js",
+                "assets/js/inject_message.js",
+                "assets/js/inject_icon.js"
             ]
         }
     ],
     "web_accessible_resources": [
-        "templates/message.html"
+        "templates/message.html",
+        "templates/icon.html",
+        "assets/img/icon.png"
     ],
     "browser_action": {
         "default_icon": "assets/img/icon.png",
@@ -33,15 +37,18 @@
     },
     "background": {
         "scripts": [
-            "assets/js/jquery-custom.min.js",
+            "assets/plugins/jquery-custom.min.js",
             "assets/js/background.js"
         ]
     },
     "permissions": [
         "background",
         "storage",
+        "cookies",
         "identity",
-        "identity.email"
+        "identity.email",
+        "http://*/*",
+        "https://*/*"
     ],
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

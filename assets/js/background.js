@@ -3,7 +3,7 @@ const config = {
     updateDelay: 3600
 }
 
-let saveUrls = resp => {
+const saveUrls = resp => {
     let nextUpdate = new Date()
     nextUpdate.setSeconds(nextUpdate.getSeconds() + config.updateDelay)
 
@@ -13,7 +13,7 @@ let saveUrls = resp => {
     })
 }
 
-let loadUrls = () => {
+const downloadUrls = () => {
     $.ajax({
         dataType: 'json',
         url: config.dataUrl,
@@ -21,24 +21,54 @@ let loadUrls = () => {
     })
 }
 
-(callback => {
-    chrome.identity.getProfileUserInfo(info => {
-        callback(info)
-    })
-})(info => {
-    chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
-        sendResponse({info: info})
-    })
-})
-
-chrome.tabs.onUpdated.addListener(function() {
+const updateUrls = () => {
     chrome.storage.sync.get('nextUpdate', items => {
         if ('nextUpdate' in items) {
             if (new Date().getTime() >= items.nextUpdate) {
-                loadUrls()
+                downloadUrls()
             }
         } else {
-            loadUrls()
+            downloadUrls()
         }
     })
-})
+}
+
+const getUser = callback => {
+    chrome.identity.getProfileUserInfo(info => {
+        callback(info)
+    })
+}
+
+const getCookie = (params, callback) => {
+    chrome.cookies.get(params, cookie => {
+        callback(cookie)
+    })
+}
+
+const setCookie = (params, callback) => {
+    params.value = params.value.toString()
+    chrome.cookies.set(params)
+}
+
+chrome.extension.onMessage.addListener(
+    (request, sender, sendResponse) => {
+        if (request.cmd == 'getUser') {
+            getUser(userInfo => {
+                sendResponse(userInfo)
+            })
+        } else if (request.cmd == 'getCookie') {
+            getCookie(request.params, (cookie) => {
+                sendResponse({'cookie': cookie})
+            })
+        } else if (request.cmd == 'setCookie') {
+            setCookie(request.params)
+            sendResponse()
+        } else {
+            sendResponse()
+        }
+
+        return true
+    }
+)
+
+chrome.tabs.onUpdated.addListener(updateUrls)
