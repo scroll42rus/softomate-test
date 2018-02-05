@@ -14,6 +14,8 @@ npm install -g yo gulp-cli bower
 npm install -g generator-chrome-extension
 ```
 
+4. Run command `npm install` in root project directory to install dependencies
+
 ## Build project
 1. Run `gulp build` for build, clean and minify source files
 2. Bring up the Extensions management page by going to URL `chrome://extensions`
