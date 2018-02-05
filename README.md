@@ -1,4 +1,6 @@
-# Installation
+# Softomate test project
+
+### Installation
 
 1. Download and install Node.js package from [Node.js official website](https://nodejs.org/en/)
 
@@ -12,7 +14,7 @@ npm install -g yo gulp-cli bower
 npm install -g generator-chrome-extension
 ```
 
-# Build project
+### Build project
 1. Run `gulp build` for build, clean and minify source files
 2. Bring up the Extensions management page by going to URL `chrome://extensions`
 3. Ensure that the "Developer mode" checkbox in the top right-hand corner is checked
