@@ -19,7 +19,7 @@ npm install -g generator-chrome-extension
 2. Bring up the Extensions management page by going to URL `chrome://extensions`
 3. Ensure that the "Developer mode" checkbox in the top right-hand corner is checked
 4. Click the Pack extension button
-5. In the Extension root directory field, specify the path to the extension's folder
+5. In the Extension root directory field, specify the path to folder, named dist
 6. Click Package. The packager creates two files: a .crx file, which is the actual extension that can be installed, and a .pem file, which contains the private key.
 
 ***Do not lose the private key!*** Keep the .pem file secret and in a safe place. .pem file used to update extension or upload it to the Chrome Web Store
