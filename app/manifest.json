@@ -43,7 +43,6 @@
         ]
     },
     "permissions": [
-        "background",
         "storage",
         "cookies",
         "identity",
