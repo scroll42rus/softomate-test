@@ -4,15 +4,17 @@
 <head>
     <title>Softomate example extension</title>
 
-    <link rel="stylesheet" type="text/css" href="../assets/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
 
-    <script type="text/javascript" src="../assets/plugins/jquery-custom.min.js"></script>
-    <script type="text/javascript" src="../assets/plugins/handlebars.min.js"></script>
-    <script type="text/javascript" src="../assets/js/popup.js"></script>
+    <script type="text/javascript" src="assets/jquery-custom.min.js"></script>
+    <script type="text/javascript" src="assets/handlebars.min.js"></script>
+    <script type="text/javascript" src="scripts/popup.js"></script>
 </head>
 
 <body>
-    <h1>Available urls</h1>
+    <div class="popup__header">
+        <h1>Available urls</h1>
+    </div>
     <div id="container">
         <script id="template" type="text/x-handlebars-template">
             <ul class="list__group">

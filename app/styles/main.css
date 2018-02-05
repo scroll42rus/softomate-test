@@ -1,0 +1,74 @@
+body {
+  margin: 0 !important;
+}
+h1 {
+  white-space: nowrap;
+  text-align: center;
+}
+.popup__header {
+  padding: 0 20px;
+}
+.list__group {
+  padding: 0;
+  margin-bottom: 0;
+}
+.list__group__item {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+.list__group__item a {
+  text-transform: capitalize;
+  display: block;
+  padding: 12px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+}
+.list__group__item a:hover span {
+  text-decoration: underline;
+}
+.list__group__item__logo {
+  width: 12px;
+  height: 12px;
+}
+.url__icon {
+  width: 12px;
+  height: 12px;
+}
+.message__container {
+  position: fixed;
+  z-index: 10000;
+  right: 15px;
+  top: 15px;
+  padding: 12px 20px;
+  background-color: #cce5ff;
+  border: 1px solid #b8daff;
+  border-radius: .25rem;
+  font-size: 16px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.message__container,
+.list__group {
+  max-width: 250px;
+  width: 100%;
+}
+.message__button {
+  cursor: pointer;
+  display: block;
+  padding: 11px 16px !important;
+  background-color: transparent;
+  border: 0;
+  font-size: 18px !important;
+  font-weight: bold;
+}
+.message__container,
+.message__button {
+  color: black;
+}
+.message__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.message__close:hover {
+  text-decoration: underline;
+}

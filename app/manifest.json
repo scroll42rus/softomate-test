@@ -1,0 +1,55 @@
+{
+    "manifest_version": 2,
+
+    "name": "__MSG_appName__",
+    "description": "__MSG_appDescription__",
+    "version": "0.0.1",
+
+    "default_locale": "en",
+
+    "icons": {
+        "16": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "css": [
+                "styles/main.css"
+            ],
+            "js": [
+                "assets/jquery-custom.min.js",
+                "assets/handlebars.min.js",
+                "scripts/inject_message.js",
+                "scripts/inject_icon.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        "message.html",
+        "icon.html",
+        "images/icon.png"
+    ],
+    "browser_action": {
+        "default_icon": "images/icon.png",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": [
+            "assets/jquery-custom.min.js",
+            "scripts/background.js"
+        ]
+    },
+    "permissions": [
+        "background",
+        "storage",
+        "cookies",
+        "identity",
+        "identity.email",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
